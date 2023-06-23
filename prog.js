@@ -1,10 +1,10 @@
 const button = document.querySelector(".b1")
 const select2 = document.querySelector(".select-2")
 const select1 = document.querySelector(".select-1")
-let dolarToday = 5
-let euroToday = 6
-let bitcoinToday = 10
-let libraToday = 4.5
+let dolarToday = 0
+let euroToday = 0
+let bitcoinToday = 0
+let libraToday = 0
 let realToday = 0
 
 function convertValues() {
@@ -14,36 +14,117 @@ function convertValues() {
 
     //todas as opçoes de moedas para converter//
 
-    if (select2.value == "real") {
-        valueconverted.innerHTML = new Intl.NumberFormat("pt-BR", {
-            style: "currency",
-            currency: "BRL"
-        }).format(inputvalue / realToday)
-    }
-    if (select2.value == "dolar") {
+    if (select2.value == "dolar" && select1.value == "real1") {
+        realToday = inputvalue
+        dolarToday = 0.21
         valueconverted.innerHTML = new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "USD"
-        }).format(inputvalue / dolarToday)
+        }).format(inputvalue * dolarToday)
     }
-    if (select2.value == "euro") {
+
+    if (select2.value == "dolar" && select1.value == "dolar1") {
+        dolarToday = inputvalue
+        valueconverted.innerHTML = new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD"
+        }).format(inputvalue)
+    }
+
+    if (select2.value == "dolar" && select1.value == "euro1") {
+        euroToday = inputvalue
+        dolarToday = 1.10
+        valueconverted.innerHTML = new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD"
+        }).format(inputvalue * dolarToday)
+    }
+
+    if (select2.value == "dolar" && select1.value == "libra1") {
+        libraToday = inputvalue
+        dolarToday = 1.27
+        valueconverted.innerHTML = new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD"
+        }).format(inputvalue * dolarToday)
+    }
+
+    if (select2.value == "dolar" && select1.value == "bitcoin1") {
+        bitcoinToday = inputvalue
+        dolarToday = 30069
+        valueconverted.innerHTML = new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD"
+        }).format(inputvalue * dolarToday)
+    }
+
+    if (select2.value == "real" && select1 == "real1") {
+        realToday = inputvalue
+        valueconverted.innerHTML = new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        }).format(inputvalue)
+    }
+    if (select2.value == "real" && select1 == "dolar1") {
+        realToday = 4.77
+        dolarToday = inputvalue
+        valueconverted.innerHTML = new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        }).format(inputvalue * realToday)
+    }
+
+ if (select2.value == "real" && select1 == "libra1") {
+        realToday = 6.09
+        libraToday = inputvalue
+        valueconverted.innerHTML = new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        }).format(inputvalue * realToday)
+    }
+    if (select2.value == "real" && select1 == "euro1") {
+        realToday = 5.23
+        euroToday = inputvalue
+        valueconverted.innerHTML = new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        }).format(inputvalue * realToday)
+    }
+
+    if (select2.value == "real" && select1 == "bitcoin1") {
+        realToday = 143988
+        dolarToday = inputvalue
+        valueconverted.innerHTML = new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        }).format(inputvalue * realToday)
+    }
+
+
+    if (select2.value == "euro" && select1 == "real1") {
+        euroToday = 0.19
+        realToday = inputvalue
         valueconverted.innerHTML = new Intl.NumberFormat("de-DE", {
             style: "currency",
             currency: "EUR"
-        }).format(inputvalue / euroToday)
+        }).format(inputvalue * euroToday)
     }
+
+
+//configs//
+
 
     if (select2.value == "libra") {
         valueconverted.innerHTML = new Intl.NumberFormat("en-GB", {
             style: "currency",
             currency: "GBP"
-        }).format(inputvalue / libraToday)
+        })
     }
     if (select2.value == "bitcoin") {
         valueconverted.innerHTML = new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "USD"
-        }).format(inputvalue / bitcoinToday)
+        })
     }
 
     //todas as opçoes de moedas para converter//
@@ -55,35 +136,30 @@ function convertValues() {
         }).format(inputvalue)
     }
     if (select1.value == "dolar1") {
-        dolarToday = 0
         valuetoconvert.innerHTML = new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "USD"
         }).format(inputvalue)
     }
-    if (select1.value == "euro1") {
-        euroToday = 0
+    if (select1.value == "euro1"){
+        euroToday = inputvalue
         valuetoconvert.innerHTML = new Intl.NumberFormat("de-DE", {
             style: "currency",
             currency: "EUR"
         }).format(inputvalue)
     }
     if (select1.value == "libra1") {
-        libraToday = 0
         valuetoconvert.innerHTML = new Intl.NumberFormat("en-GB", {
             style: "currency",
             currency: "GBP"
         }).format(inputvalue)
     }
     if (select1.value == "bitcoin1") {
-        bitcoinToday = 0
         valuetoconvert.innerHTML = new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "USD"
         }).format(inputvalue)
     }
-
-
 
 }
 
@@ -185,7 +261,7 @@ function currencyChange3() {
             text: 'Escolha uma opção diferente para converter!'
         })
     }
-    convertValues()
+    
 }
 addEventListener("change", currencyChange3)
 
