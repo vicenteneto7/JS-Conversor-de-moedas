@@ -241,11 +241,6 @@ function convertValues() {
 
     //configs//
 
-
-
-
-    //todas as opçoes de moedas para converter//
-
     if (select1.value == "real1") {
         valuetoconvert.innerHTML = new Intl.NumberFormat("pt-BR", {
             style: "currency",
@@ -382,8 +377,6 @@ function currencyChange3() {
 
 }
 button.addEventListener("click", currencyChange3)
-
-
 select1.addEventListener("change", changeCurrency2)
 select2.addEventListener("change", changeCurrency)
 button.addEventListener("click", convertValues)
