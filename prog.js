@@ -176,7 +176,7 @@ function convertValues() {
         }).format(inputvalue * libraToday)
     }
 
-    if (select2.value == "libra" && select1.value == "libra11") {
+    if (select2.value == "libra" && select1.value == "libra1") {
         libraToday = inputvalue
         valueconverted.innerHTML = new Intl.NumberFormat("en-GB", {
             style: "currency",
@@ -381,7 +381,7 @@ function currencyChange3() {
     }
 
 }
-addEventListener("change", currencyChange3)
+button.addEventListener("click", currencyChange3)
 
 
 select1.addEventListener("change", changeCurrency2)
