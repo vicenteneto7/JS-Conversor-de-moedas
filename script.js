@@ -374,7 +374,6 @@ function currencyChange3() {
             text: 'Escolha uma opção diferente para converter!'
         })
     }
-
 }
 button.addEventListener("click", currencyChange3)
 select1.addEventListener("change", changeCurrency2)
